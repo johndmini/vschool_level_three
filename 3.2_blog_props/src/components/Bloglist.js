@@ -15,3 +15,16 @@ export default function List() {
         </div>
     )
 }
+
+
+
+const [person, setPerson] = useState({
+    name: "Smith", 
+    age: 10, 
+    favoriteColors: ["pink", "blue"]
+ })
+
+
+ function handleChange() {
+     setPerson(prevPerson => ({...prevPerson, favoriteColors: [...prevPerson.favoriteColors, "red"]}))
+ }

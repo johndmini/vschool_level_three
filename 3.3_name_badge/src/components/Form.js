@@ -1,21 +1,23 @@
 import React from 'react'
 
 export default function Form(props) {
+    const {firstname, lastname, email, birthplace, phone, food, aboutme} = props
+
     return(
         <React.Fragment>
                 <input 
                     name="firstname"
                     placeholder="First Name"
                     type="text"
-                    value={props.value}
-                    handleChange={props.onChange}
+                    value={firstname}
+                    onChange={props.onChange}
                 />
                 <input 
-                    name="lastName"
+                    name="lastname"
                     placeholder="Last Name"
                     type="text"
-                    value={props.value}
-                    handleChange={props.onChange}
+                    value={lastname}
+                    onChange={props.onChange}
                 />
                 <br />
                 <br />
@@ -23,38 +25,40 @@ export default function Form(props) {
                     name="email"
                     placeholder="Email"
                     type="email"
-                    value={props.value}
-                    handleChange={props.onChange}
+                    value={email}
+                    onChange={props.onChange}
                 />
                 <input 
                     name="birthplace"
                     placeholder="Place of Birth"
                     type="text"
-                    value={props.value}
-                    handleChange={props.onChange}
+                    value={birthplace}
+                    onChange={props.onChange}
                 />
                 <br />
                 <br />
                 <input 
                     name="phone"
                     placeholder="Phone"
-                    type="number"
+                    type="text"
+                    value={phone}
+                    onChange={props.onChange}
                 />
                 <input 
                     name="food"
                     placeholder="Favorite Food"
                     type="text"
-                    value={props.value}
-                    handleChange={props.onChange}
+                    value={food}
+                    onChange={props.onChange}
                 />
                 <br />
                 <br />
                 <textarea 
-                    name="aboutMe"
+                    name="aboutme"
                     placeholder="Tell us about yourself"
                     type="text"
-                    value={props.value}
-                    handleChange={props.onChange}
+                    value={aboutme}
+                    onChange={props.onChange}
                 />
                 <br />
                 <br />
