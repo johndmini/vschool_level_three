@@ -1,0 +1,52 @@
+body {
+    background-color: grey;
+}
+
+.form {
+    border: 3px solid black;
+    text-align: center;
+}
+
+textarea {
+    width: 1030px;
+    height: 185px;
+}
+
+button {
+    margin-bottom: 10px;
+}
+
+.badge {
+    border: 3px solid black;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.badge h2 {
+    text-align: left;
+    margin-left: 5px;
+}
+
+.badge h3 {
+    display: inline-block;
+    border: 2px solid black;
+    width: 400px;
+    text-align: left;
+    margin-right: 30px;
+}
+
+li {
+    text-align: left;
+    list-style: none;
+}
+
+.badgelist {
+    display: flex;
+    margin-top: 10px;
+    border: 3px solid black;
+    width: 500px;
+}
+
+span {
+    font-weight: normal;
+}
