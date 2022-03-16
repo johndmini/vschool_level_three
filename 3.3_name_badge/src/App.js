@@ -2,22 +2,14 @@ import React, {useState} from 'react'
 import Badge from './components/Badge.js'
 import Badgelist from './components/Badgelist'
 import Form from './components/Form.js'
+import Data from './Data.js'
 import './index.css'
 
 export default function App() {
     const [badge, setBadge] = useState({})
     const [badgeList, setBadgeData] = useState([])
-    const [formData, setFormData] = useState(
-        {
-            firstname: "",
-            lastname: "",
-            email: "",
-            birthplace: "",
-            phone: "",
-            food: "",
-            aboutme: ""
-        }
-    )
+    const [formData, setFormData] = useState(Data)
+
     const handleChange = (e) => {
         const {name, value} = e.target
         setFormData(prevFormData => {
