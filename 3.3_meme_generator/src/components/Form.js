@@ -42,21 +42,20 @@ export default function Form() {
         )
     }
 
-    const handleDeleteFromList = (e) => {
-        e.preventDefault()
-        setMemeList(memeList.filter(meme => meme.id !== e.target.id))
+    const handleDeleteFromList = (id) => {
+        setMemeList(memeList.filter(meme => meme.id !== id))
     }
 
-    // const handleEditList = (e) => {
-    //     e.preventDefault()
-    //     console.log('This button works')
-    // }
+    const handleEditList = (id) => {
+        console.log('This button works', id)
+    }
     
     const listOfMemes = memeList.map(meme => (
         <Memelist 
             key={meme.id}
             {...meme}
-            onSubmit={handleDeleteFromList}
+            handleDeleteFromList={handleDeleteFromList}
+            handleEditList={handleEditList}
         />
     ))
 
