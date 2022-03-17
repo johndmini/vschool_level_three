@@ -7,17 +7,15 @@ export default function Form() {
         id: '61579',
         topText: "",
         bottomText: "",
-        randomImage: "http://i.imgflip.com/1bij.jpg"
+        randomImage: "http://i.imgflip.com/1bij.jpg",
+        edit: false
     })
-    
     useEffect(() => {
         axios.get("https://api.imgflip.com/get_memes")
             .then(res => setAllMemeImages(res.data.data.memes))
             .catch(err => console.error(err))
     }, [meme])
-
     const [allMemeImages, setAllMemeImages] = useState()
-
     const handleChange = (e) => {
         const {name, value} = e.target
         setMeme(prevMeme => {
@@ -29,6 +27,7 @@ export default function Form() {
     }
 
     const [memeList, setMemeList] = useState([])
+    const [toggleEdit, setToggleEdit] = useState(false)
     const handleAddToList = (e) => {
         e.preventDefault()
         setMemeList(prevList => ([...prevList, meme]))
@@ -37,28 +36,43 @@ export default function Form() {
                 id: '61579',
                 topText: "",
                 bottomText: "",
-                randomImage: "http://i.imgflip.com/1bij.jpg"
+                randomImage: "http://i.imgflip.com/1bij.jpg",
+                edit: false
             }
         )
     }
-
     const handleDeleteFromList = (id) => {
         setMemeList(memeList.filter(meme => meme.id !== id))
     }
-
     const handleEditList = (id) => {
-        console.log('This button works', id)
+        setToggleEdit(prevToggle => !prevToggle)
+        const result = memeList.find(meme => meme.id === id)
     }
-    
+
+    const handleEditChange = (e) => {
+        const {name, value, parentElement} = e.target
+        const {id} = parentElement
+        setMemeList(prevState => {
+            const specificMeme = prevState.find(meme => meme.id === id)
+            specificMeme[name] = value
+            return prevState.map(meme => {
+                if (meme.id === specificMeme.id) {
+                    return specificMeme
+                } else return meme
+            })
+        })
+    }
+
     const listOfMemes = memeList.map(meme => (
         <Memelist 
             key={meme.id}
             {...meme}
             handleDeleteFromList={handleDeleteFromList}
             handleEditList={handleEditList}
+            toggleEdit={toggleEdit}
+            handleEditChange={handleEditChange}
         />
     ))
-
     const styles = {
         border: "5px solid black"
     }
